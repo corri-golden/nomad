@@ -12,7 +12,10 @@
 
 <body>
 <h1>Welcome Nomad</h1>
-
+{% for post in all_posts %}
+    <h2>{{post.title}}</h2>
+    <h2>{{post.date}}</h2>
+{% endfor %}
     
 </body>
 

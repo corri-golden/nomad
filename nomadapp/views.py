@@ -11,6 +11,6 @@ def post_list(request):
 
     template = 'posts/list.html'
     context = {
-        'all_post': all_posts
+        'all_posts': all_posts
     }
     return render(request, template, context)
