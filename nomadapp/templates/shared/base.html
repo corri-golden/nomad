@@ -21,9 +21,18 @@
 <body>
 
     <nav id="site-nav">
-        <ol class="navList">
+        {% if user.is_authenticated %}
+        <ul class="navList">
             <li><a href="{% url 'nomadapp:home' %}">Home</a><li>
-        </ol>
+            <li><a href="{% url 'nomadapp:post_new' %}">+ Adventure</a><li>
+            <li><a href="{% url 'nomadapp:logout' %}">Logout</a><li>
+
+        {% else %}
+            <li><a href="{% url 'nomadapp:login' %}">Login</a><li>
+            <li><a href="{% url 'nomadapp:register' %}">Sign Up</a><li>
+
+        {% endif %}
+        </ul>
     </nav>
              
         </ol>
