@@ -22,7 +22,7 @@ class Post(models.Model):
         verbose_name_plural = ("posts")
 
     def __str__(self):
-        return self.name
+        return self.title
 
     def get_absolute_url(self):
         return reverse("post_detail", kwargs={"pk": self.pk})
