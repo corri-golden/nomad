@@ -17,10 +17,11 @@
 
     <div>
         <h3>Comments</h3>
-            {% if comment.object.count == 0 %}
-            <h3>There are no comments</h3>
-            {% else %}
-            {% endif %}
+            <a href="#">Add a Comment</a>
+                {% for comment in post.comments.all %}
+                    <h6>{{comment.user.username}}</h6>
+                    <h6>{{comment.message}}</h6>
+                {% endfor %}
     </div>
 
 
