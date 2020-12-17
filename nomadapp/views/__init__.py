@@ -3,3 +3,4 @@ from .posts.list import post_list
 from .posts.detail import post_detail
 from .auth.registration import register_user
 from .posts.post_form import post_form
+from .comments.form import comment_form

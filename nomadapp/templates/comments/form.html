@@ -1,0 +1,16 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'styles/agents.css' %}" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<form action="{% url 'nomadapp:home' %}" method="post">
+      {% csrf_token %}
+      <fieldset>
+          <label for="message">Message: </label>
+          <input id="message" type="text" name="message">
+      </fieldset>
+{% endblock%}
