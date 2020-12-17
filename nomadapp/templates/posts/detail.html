@@ -8,11 +8,23 @@
 
 {% block content %}
 <h1>Adventure</h1>
+    <div>
+        <h2>{{post.title}}</h2>
+        <h3>{{post.location}}</h3>
+        <h3>{{post.description}}</h3>
+        <h3>{{post.date}}</h3>
+    </div>
 
-    <h2>{{post.title}}</h2>
-    <h3>{{post.location}}</h3>
-    <h3>{{post.description}}</h3>
-    <h3>{{post.date}}</h3>
+    <div>
+        <h3>Comments</h3>
+            <a href="#">Add a Comment</a>
+                {% for comment in post.comments.all %}
+                    <h6>{{comment.user.username}}</h6>
+                    <h6>{{comment.message}}</h6>
+                {% endfor %}
+    </div>
+
+
 
     
 {% endblock %}
