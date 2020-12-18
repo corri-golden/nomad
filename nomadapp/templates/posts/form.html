@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block content %}
-    <form action="{% url 'nomadapp:home' %}" method="post">
+    <form action="{% url 'nomadapp:home' %}" method="POST">
       {% csrf_token %}
       <fieldset>
           <label for="title">Title: </label>
