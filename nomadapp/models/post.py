@@ -14,6 +14,7 @@ class Post(models.Model):
     date = models.DateField(auto_now=False, auto_now_add=False)
     # description_html = models.TextField(editable=False,default='',blank=True)
     image = models.ImageField(null=True,upload_to='author_headshots')
+    
 
     
 

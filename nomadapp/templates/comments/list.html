@@ -7,13 +7,12 @@
 {% endblock %}
 
 {% block content %}
-<form method="POST">
-      {% csrf_token %}
-      <fieldset>
-        <h2>Messages</h2
-          <label for="message">Message: </label>
-          <input id="message" type="text" name="message">
-      </fieldset>
-      <input type="submit" value="Add" />
-{% endblock%}
+<h1>Welcome Nomad</h1>
+{% for comment in all_comments %}
+    <h3>{{comment.message}}</h3>
+    <h3>{{comment.created_at}}</h3>
+{% endfor %}
+    
+{% endblock %}
 
+</html>
