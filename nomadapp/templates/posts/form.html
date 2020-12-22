@@ -7,7 +7,15 @@
 {% endblock %}
 
 {% block content %}
-    <form action="{% url 'nomadapp:home' %}" method="POST">
+    <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" name="Save">
+    </form>
+
+
+
+    {% comment %} <form action="{% url 'nomadapp:home' %}" method="POST">
       {% csrf_token %}
       <fieldset>
           <label for="title">Title: </label>
@@ -26,7 +34,7 @@
           <input id="date" type="date" name="date">
       </fieldset>
       <input type="submit" value="Add It" />
-    </form>
+    </form> {% endcomment %}
  
 
 

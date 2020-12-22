@@ -15,15 +15,16 @@ def post_list(request):
         }
         return render(request, template, context)
 
-    elif request.method == 'POST':
-        form_data = request.POST
-        new_post = Post.objects.create(
-            title = form_data['title'],
-            description = form_data['description'],
-            location = form_data['location'],
-            date = form_data['date'],
-            user_id = request.user.id
-        )
+    # elif request.method == 'POST':
+    #     form_data = request.POST
+    #     new_post = Post.objects.create(
+    #         title = form_data['title'],
+    #         description = form_data['description'],
+    #         location = form_data['location'],
+    #         date = form_data['date'],
+    #         post_image = form_data['post_image'],
+    #         user_id = request.user.id
+    #     )
 
-        return redirect(reverse('nomadapp:home'))
+    #     return redirect(reverse('nomadapp:home'))
 
