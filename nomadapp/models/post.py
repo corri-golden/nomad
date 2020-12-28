@@ -13,7 +13,7 @@ class Post(models.Model):
     description = models.TextField(blank=True, default='')
     date = models.DateField(auto_now=False, auto_now_add=False)
     # description_html = models.TextField(editable=False,default='',blank=True)
-    image = models.ImageField(null=True,upload_to='author_headshots')
+    post_image = models.ImageField(null=True,blank=True, upload_to='images/')
     
 
     

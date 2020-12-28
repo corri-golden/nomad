@@ -25,7 +25,13 @@
                     <h6>{{comment.user.username}}</h6>
                     <h6>{{comment.message}}</h6>
                     <h6>{{comment.created_at}}</h6>
+                <form method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="actual_method" value="DELETE">
+                    <button>Delete</button>
+                <form>
                 {% endfor %}
+
     </div>
 
 

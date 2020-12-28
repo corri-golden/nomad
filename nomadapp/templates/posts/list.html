@@ -2,20 +2,22 @@
 {% load static %}
 
 {% block css %}
-    <link rel="stylesheet" href="{% static 'styles/agents.css' %}" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles/posts.css' %}" />
+    {% comment %} <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet"> {% endcomment %}
 {% endblock %}
 
 {% block content %}
-<h1>Welcome Nomad</h1>
+<h1 class="title">Welcome Nomad</h1>
 {% for post in all_posts %}
-    <h6>@{{user.username}}
-    <a href={% url 'nomadapp:post_detail' post.id %}><h2>{{post.title}}</a></h2>
-    <h3>{{post.location}}</h3>
-    <h3>{{post.description}}</h3>
-    <h3>{{post.date}}</h3>
+    <div class="post_card">
+        <h6>@{{user.username}}</h6>
+        <img class="post_photo" src="{{post.post_image.url}}"></img>
+        <h3 class="post_card_title"><a class="post_card_title" href={% url 'nomadapp:post_detail' post.id %}>{{post.title}}</a></h3>
+        {% comment %} <h3>{{post.location}}</h3> {% endcomment %}
+        <h6>@{{user.username}} - {{post.description}}</h6>
+        <h6 class="post_card_date">{{post.date}}</h6>
+    </div>
 {% endfor %}
     
 {% endblock %}
 
-</html>

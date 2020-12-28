@@ -16,6 +16,7 @@ urlpatterns = [
     path('', post_list, name='home'),
     path('comments', comment_list, name='comments'),
     path('posts/<int:post_id>', post_detail, name='post_detail'),
+    # path('posts/<int:post_id>/comment/<int:post_id>', comment_detail, name='comment_detail'),
     path('posts/new', post_form, name='post_new'),
     path('posts/<int:post_id>/comment/new', add_comment, name='comment_new'),
     path('accounts/', include('django.contrib.auth.urls')),
