@@ -7,14 +7,12 @@
 {% endblock %}
 
 {% block content %}
-<h1>Welcome Nomad</h1>
-{% for comment in all_comments %}
-    <a href={% url 'nomadapp:comment_detail' comment.id %}><h3>{{comment.message}}</h3>
-    <h3>{{comment.created_at}}</h3>
 
-
-{% endfor %}
-    
+    {{user.username}}
+    {{comment.message}}
+    <form method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="actual_method" value="DELETE">
+    <button>Delete</button>
+    </form>
 {% endblock %}
-
-</html>
