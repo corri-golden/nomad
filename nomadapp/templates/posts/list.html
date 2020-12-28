@@ -10,15 +10,14 @@
 <h1 class="title">Welcome Nomad</h1>
 {% for post in all_posts %}
     <div class="post_card">
-        <h6>@{{user.username}}
-        <a href={% url 'nomadapp:post_detail' post.id %}><h2>{{post.title}}</a></h2>
-        <img src="{{post.post_image.url}}">
+        <h6>@{{user.username}}</h6>
+        <a href={% url 'nomadapp:post_detail' post.id %}>{{post.title}}</a>
+        <img class="post_photo" src="{{post.post_image.url}}">
         <h3>{{post.location}}</h3>
         <h3>{{post.description}}</h3>
-        <h3>{{post.date}}</h3>
-    <div>
+        <h6>{{post.date}}</h6>
+    </div>
 {% endfor %}
     
 {% endblock %}
 
-</html>

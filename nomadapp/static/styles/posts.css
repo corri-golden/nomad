@@ -1,5 +1,6 @@
 .post_card {
     border: 2px gray solid;
+    width: 350px
 }
 
 .title{
@@ -7,5 +8,9 @@
 }
 
 #background {
-    color: blue
+    color: gray
+}
+
+.post_photo{
+    width: 250px
 }
