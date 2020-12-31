@@ -14,6 +14,7 @@ app_name = "nomadapp"
 
 urlpatterns = [
     path('', post_list, name='home'),
+    path('like/', like_post, name='like_post'),
     path('comments', comment_list, name='comments'),
     path('posts/<int:post_id>', post_detail, name='post_detail'),
     # path('posts/<int:post_id>/comment/<int:post_id>', comment_detail, name='comment_detail'),

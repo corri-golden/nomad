@@ -8,10 +8,11 @@ def post_list(request):
     if request.method == 'GET':
 
         all_posts = Post.objects.all()
-
+        user = request.user
         template = 'posts/list.html'
         context = {
-        'all_posts': all_posts
+        'all_posts': all_posts,
+        'user': user,
         }
         return render(request, template, context)
 

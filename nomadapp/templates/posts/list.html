@@ -7,14 +7,24 @@
 {% endblock %}
 
 {% block content %}
-<h1 class="title">Welcome Nomad</h1>
+{% comment %} <h1 class="title">Welcome Nomad</h1> {% endcomment %}
 {% for post in all_posts %}
     <div class="post_card">
-        <h6>@{{user.username}}</h6>
+        <h6>@{{post.user.username}}</h6>
         <img class="post_photo" src="{{post.post_image.url}}"></img>
+        <form action="{% url 'nomadapp:like_post' %}" method='POST'>
+            {% csrf_token %}
+            <input type='hidden' name='post_id' value="{{post.id}}">
+            {% if user not in post.liked.all %}
+                <button type='submit'>+</button>
+            {% else %}
+                <button type='submit'>-</button>
+            {% endif %}
+        </form>
+        <strong>{{post.liked.all.count}} likes</strong>
         <h3 class="post_card_title"><a class="post_card_title" href={% url 'nomadapp:post_detail' post.id %}>{{post.title}}</a></h3>
         {% comment %} <h3>{{post.location}}</h3> {% endcomment %}
-        <h6>@{{user.username}} - {{post.description}}</h6>
+        <h6>@{{post.user.username}} - {{post.description}}</h6>
         <h6 class="post_card_date">{{post.date}}</h6>
     </div>
 {% endfor %}
