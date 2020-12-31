@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <title>Queries</title>
+    <title>Nomads</title>
 
    <link rel="stylesheet" href="{% static 'styles/base.css' %}" />
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -21,22 +21,19 @@
 <body>
 
     <nav id="site-nav">
-        {% if user.is_authenticated %}
-        <ul class="navList">
-            <li><a href="{% url 'nomadapp:home' %}">Home</a><li>
-            <li><a href="{% url 'nomadapp:post_new' %}">+ Adventure</a><li>
-            <li><a href="{% url 'nomadapp:logout' %}">Logout</a><li>
-
-        {% else %}
-            <li><a href="{% url 'nomadapp:login' %}">Login</a><li>
-            <li><a href="{% url 'nomadapp:register' %}">Sign Up</a><li>
-
-        {% endif %}
-        </ul>
-    </nav>
-             
+        <ol class="navList">
+            {% if user.is_authenticated %}
+                <li class="navList__route"><a href="{% url 'nomadapp:home' %}">Home</a><li>
+                <li class="navList__route"><a href="{% url 'nomadapp:post_new' %}">+ Adventure</a><li>
+                <li class="navList__route"><a href="{% url 'nomadapp:logout' %}">Logout</a><li>
+            {% else %}
+                <li class="navList__route"><a href="{% url 'nomadapp:login' %}">Login</a><li>
+                <li class="navList__route"><a href="{% url 'nomadapp:register' %}">Sign Up</a><li>
+            {% endif %}
         </ol>
     </nav>
+             
+    
          
      <main class="main-content">
         {% block content %}
