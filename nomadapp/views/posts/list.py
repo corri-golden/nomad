@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 def post_list(request):
     if request.method == 'GET':
 
-        all_posts = Post.objects.all()
+        all_posts = Post.objects.all().order_by('-date')
         user = request.user
         template = 'posts/list.html'
         context = {

@@ -11,7 +11,7 @@ class Post(models.Model):
     location = models.CharField(max_length=255)
     # slug = models.SlugField(allow_unicode=True,unique=True)
     description = models.TextField(blank=True, default='')
-    date = models.DateField(auto_now=False, auto_now_add=False)
+    date = models.DateField(auto_now=False, auto_now_add=False,)
     liked = models.ManyToManyField(User, default=None,blank=True,related_name='liked')
     # description_html = models.TextField(editable=False,default='',blank=True)
     post_image = models.ImageField(null=True,blank=True, upload_to='images/')

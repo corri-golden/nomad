@@ -7,6 +7,7 @@
 {% endblock %}
 
 {% block content %}
+<div class="add"><a class="add_font" href="{% url 'nomadapp:post_new' %}"><i class="fas fa-plus-circle"></i></i></a></div>
 {% comment %} <h1 class="title">Welcome Nomad</h1> {% endcomment %}
 {% for post in all_posts %}
     <div class="post_card">
@@ -16,9 +17,9 @@
             {% csrf_token %}
             <input type='hidden' name='post_id' value="{{post.id}}">
             {% if user not in post.liked.all %}
-                <button type='submit'>+</button>
+                <button type='submit'><i class="far fa-heart"></i></button>
             {% else %}
-                <button type='submit'>-</button>
+                <button type='submit'><i class="fas fa-heart"></i></button>
             {% endif %}
         </form>
         <strong>{{post.liked.all.count}} likes</strong>
@@ -26,6 +27,8 @@
         {% comment %} <h3>{{post.location}}</h3> {% endcomment %}
         <h6>@{{post.user.username}} - {{post.description}}</h6>
         <h6 class="post_card_date">{{post.date}}</h6>
+        <div>
+        </div>
     </div>
 {% endfor %}
     
