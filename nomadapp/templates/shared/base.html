@@ -23,8 +23,8 @@
     <nav id="site-nav">
         <ol class="navList">
             {% if user.is_authenticated %}
-                <li class="navList__route"><a href="{% url 'nomadapp:users_post' %}">@{{user.username}}</a><li>
-                <li class="navList__route"><a href="{% url 'nomadapp:home' %}">Home</a><li>
+                <li class="navList__route username"><a class="nav_username" href="{% url 'nomadapp:users_post' %}">@{{user.username}}</a><li>
+                <li class="navList__route"><a href="{% url 'nomadapp:home' %}">Nomads</a><li>
                 <li class="navList__route"><a href="{% url 'nomadapp:post_new' %}">+ Adventure</a><li>
                 <li class="navList__route"><a href="{% url 'nomadapp:logout' %}">Logout</a><li>
             {% else %}
