@@ -13,6 +13,15 @@
     background-color: rgb(191,190, 188);
 } */
 
+a.nav_username{
+    font-size: 14px;
+    
+}
+
+li.navList__route.username{
+    margin-top: 2px
+}
+
 .navList {
     list-style-type: none;
     display: flex;
@@ -21,17 +30,19 @@
     margin: 0;
 }
 
+
 .navList__route {
     margin: 0 0.5em;
 }
 
 #site-nav {
-    margin: 20px 10px 200px  10px;
+    margin: 20px 10px 0px  10px;
     border: solid .5px ivory;
     background-color: white;
     border-radius: 10px;
     box-shadow: 5px 10px 8px #888888;
     /* background-color: rgb(191,190, 188); */
+    margin-bottom: 50px
     
 }
 
