@@ -7,6 +7,13 @@
 {% endblock %}
 
 {% block content %}
+<div class="search_bar">
+    <form action="{% url 'nomadapp:home' %}">
+        <input type="search" placeholder="Search" name="search">
+        {% comment %} <button type="submit">Search</button> {% endcomment %}
+    </form>
+</div>
+
 <div class="add"><a class="add_font" href="{% url 'nomadapp:post_new' %}"><i class="fas fa-plus-circle"></i></i></a></div>
 {% comment %} <h1 class="title">Welcome Nomad</h1> {% endcomment %}
 {% for post in all_posts %}
