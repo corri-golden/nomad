@@ -2,42 +2,42 @@
 {% load static %}
 
 {% block css %}
-    <link rel="stylesheet" href="{% static 'styles/agents.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/detail.css' %}" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
-<h1>Adventure</h1>
-    <div>
+
+<div class="post_card">
+    <div class="post_details">
+        <img class="post_photo" src="{{post.post_image.url}}"></img>
         <h2>{{post.title}}</h2>
-        <h3>{{post.location}}</h3>
-        <h3>{{post.description}}</h3>
-        <h3>{{post.date}}</h3>
-        <h3>{{post.comment.message}}</h3>
+        <h5>{{post.user.username}} - {{post.description}}</h5>
+        <h6>{{post.date}}</h6>
+        {% if post.user.id == user.id %}
         <form method="POST">
                     {% csrf_token %}
                     <input type="hidden" name="actual_method" value="DELETE">
                     <button>Delete</button>
                 <form>
-
-
+        {% endif %}
     </div>
-
-    <div>
-        <h3>Comments</h3>
-            <a href="{% url 'nomadapp:comment_new' post.id %}">Add a Comment</a>
+    <div class="post_comments">
                 {% for comment in post.comments.all %}
-                    <h6>{{comment.user.username}}</h6>
-                    <h6>{{comment.message}}</h6>
+                    <h6>{{comment.user.username}} - {{comment.message}}</h6>
                     <h6>{{comment.created_at}}</h6>
-                <form method="POST">
+                {% comment %} <form method="POST">
                     {% csrf_token %}
                     <input type="hidden" name="actual_method" value="DELETE">
                     <button>Delete</button>
-                <form>
+                <form> {% endcomment %}
                 {% endfor %}
+                <a href="{% url 'nomadapp:comment_new' post.id %}">Add a Comment</a>
+
 
     </div>
+</div>
+
 
 
 
