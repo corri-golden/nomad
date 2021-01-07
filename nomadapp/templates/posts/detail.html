@@ -14,6 +14,11 @@
         <h3>{{post.description}}</h3>
         <h3>{{post.date}}</h3>
         <h3>{{post.comment.message}}</h3>
+        <form method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="actual_method" value="DELETE">
+                    <button>Delete</button>
+                <form>
 
 
     </div>
