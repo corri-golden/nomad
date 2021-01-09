@@ -1,10 +1,18 @@
 from django.shortcuts import render, redirect, reverse
 from nomadapp.models import Post
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 #used so we can search by two parameters
 from django.db.models import Q
 
 # Create your views here.
+
+def get_users():
+    all_users = User.objects.all()
+    return all_users
+
+
+
 
 def post_list(request):
     if request.method == 'GET':
@@ -21,9 +29,11 @@ def post_list(request):
         else:
             all_posts = Post.objects.all().order_by('-date')
     user = request.user
+    users = get_users()
     template = 'posts/list.html'
     context = {
     'all_posts': all_posts,
+    'users': users,
     'user': user,
     }
     return render(request, template, context)

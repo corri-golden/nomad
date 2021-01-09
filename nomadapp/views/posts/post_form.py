@@ -32,7 +32,6 @@ def post_form(request):
         new_post = Post.objects.create(
             title = form_data['title'],
             description = form_data['description'],
-            location = form_data['location'],
             date = form_data['date'],
             post_image = request.FILES['post_image'],
             user_id = request.user.id

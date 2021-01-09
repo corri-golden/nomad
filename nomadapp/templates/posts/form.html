@@ -1,40 +1,24 @@
 {% extends 'shared/base.html' %}
+{% load bootstrap3 %}
 {% load static %}
 
+
 {% block css %}
-    <link rel="stylesheet" href="{% static 'styles/agents.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/form.css' %}">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
-{% endblock %}
+{% endblock %} 
 
 {% block content %}
     <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    {{form.as_p}}
+    {% bootstrap_form form %}
+    {% comment %} {{form.as_p}} {% endcomment %}
     <input type="submit" name="Save">
     </form>
 
 
 
-    {% comment %} <form action="{% url 'nomadapp:home' %}" method="POST">
-      {% csrf_token %}
-      <fieldset>
-          <label for="title">Title: </label>
-          <input id="title" type="text" name="title">
-      </fieldset>
-      <fieldset>
-          <label for="location">Location: </label>
-          <input id="location" type="text" name="location">
-      </fieldset>
-      <fieldset>
-          <label for="description">Description: </label>
-          <input id="description" type="text" name="description">
-      </fieldset>
-      <fieldset>
-          <label for="date">Date: </label>
-          <input id="date" type="date" name="date">
-      </fieldset>
-      <input type="submit" value="Add It" />
-    </form> {% endcomment %}
+    
  
 
 

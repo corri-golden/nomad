@@ -1,5 +1,5 @@
 from nomadapp.models import Post, Comment
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
 
 
 def get_comments():
@@ -22,3 +22,21 @@ def post_detail(request, post_id):
         }
         print("post: ", post)
         return render(request, template_name, {'post': post})
+
+    elif request.method == 'POST':
+        form_data = request.POST
+        print(form_data, "!!!!!!!!!!!!")
+    if (
+        "actual_method" in form_data
+        and form_data["actual_method"] == "DELETE"
+        ):
+
+    
+
+        post = Post.objects.get(pk=post_id)
+        print(post, "HERE")
+        post.delete()
+
+        return redirect(reverse('nomadapp:home'))
+
+
