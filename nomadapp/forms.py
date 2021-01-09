@@ -6,5 +6,5 @@ from nomadapp.models import Post
 class PostForm(ModelForm):
     class Meta:
         model = Post
-        fields = '__all__'
-        exclude = ['user']
+        fields = ('title', 'description', 'date','post_image')
+        # exclude = ['user', 'liked']

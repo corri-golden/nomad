@@ -2,31 +2,35 @@
 {% load static %}
 
 {% block css %}
-    <link rel="stylesheet" href="{% static 'styles/posts.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/user_posts.css' %}" />
     {% comment %} <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet"> {% endcomment %}
 {% endblock %}
 
 {% block content %}
-{% for post in users_post %}
-    <div class="post_card">
-        <h6>@{{post.user.username}}</h6>
-        <img class="post_photo" src="{{post.post_image.url}}"></img>
-        <form action="{% url 'nomadapp:like_post' %}" method='POST'>
-            {% csrf_token %}
-            <input type='hidden' name='post_id' value="{{post.id}}">
-            {% if user not in post.liked.all %}
-                <button type='submit'>+</button>
-            {% else %}
-                <button type='submit'>-</button>
-            {% endif %}
-        </form>
-        <strong>{{post.liked.all.count}} likes</strong>
-        <h3 class="post_card_title"><a class="post_card_title" href={% url 'nomadapp:post_detail' post.id %}>{{post.title}}</a></h3>
-        {% comment %} <h3>{{post.location}}</h3> {% endcomment %}
-        <h6>@{{post.user.username}} - {{post.description}}</h6>
-        <h6 class="post_card_date">{{post.date}}</h6>
-    </div>
-{% endfor %}
+<h1 class="username">{{user.username}}</h1>
+<hr>
+    <div class="container">
+        {% for post in users_post %}
+            <div class="post_card">
+            <img class="post_photo" src="{{post.post_image.url}}"></img>
+            {% comment %} <form action="{% url 'nomadapp:like_post' %}" method='POST'>
+                {% csrf_token %}
+                <input type='hidden' name='post_id' value="{{post.id}}">
+                {% if user not in post.liked.all %}
+                    <button type='submit'>+</button>
+                {% else %}
+                    <button type='submit'>-</button>
+                {% endif %}
+            </form> {% endcomment %}
+            <div><strong>{{post.liked.all.count}} likes</strong></div>
+            {% comment %} <h3 class="post_card_title"><a class="post_card_title" href={% url 'nomadapp:post_detail' post.id %}>{{post.title}}</a></h3>
+            <h6>@{{post.user.username}} - {{post.description}}</h6>
+            <h6 class="post_card_date">{{post.date}}</h6> {% endcomment %}
+            </div>
+        {% endfor %}
+    
+</div>
+
     
 {% endblock %}
 

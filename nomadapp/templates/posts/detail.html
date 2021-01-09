@@ -11,14 +11,21 @@
 <div class="post_card">
     <div class="post_details">
         <img class="post_photo" src="{{post.post_image.url}}"></img>
-        <h2>{{post.title}}</h2>
-        <h5>{{post.user.username}} - {{post.description}}</h5>
-        <h6>{{post.date}}</h6>
+        <div class="post_info">
+            <h2>{{post.title}}</h2>
+            <h5>{{post.user.username}} - {{post.description}}</h5>
+            <h6>{{post.date}}</h6>
+        </div>
         {% if post.user.id == user.id %}
         <form method="POST">
                     {% csrf_token %}
                     <input type="hidden" name="actual_method" value="DELETE">
-                    <button>Delete</button>
+                    <button>Delete</button> |
+                <form>
+        <form method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="actual_method" value="DELETE">
+                    <button>Edit</button>
                 <form>
         {% endif %}
     </div>

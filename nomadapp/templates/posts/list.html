@@ -20,7 +20,9 @@
     <div class="column">
         {% for post in all_posts %}
             <div class="post_card">
-                <h6>@{{post.user.username}}</h6>
+                <a href="{% url 'nomadapp:users_post' user.id %}"><h6 class="user_username" >{{post.user.username}}</h6></a>
+
+                {% comment %} <h6 class="post_user_title">@{{post.user.username}}</h6> {% endcomment %}
                 <img class="post_photo" src="{{post.post_image.url}}"></img>
                 <form action="{% url 'nomadapp:like_post' %}" method='POST'>
                     {% csrf_token %}
@@ -31,8 +33,8 @@
                         <button type='submit'><i class="fas fa-heart"></i></button>
                     {% endif %}
                 </form>
-                <strong>{{post.liked.all.count}} likes</strong>
-                <h3 class="post_card_title"><a class="post_card_title" href={% url 'nomadapp:post_detail' post.id %}>{{post.title}}</a></h3>
+                <h6>{{post.liked.all.count}} likes</h6>
+                <a href={% url 'nomadapp:post_detail' post.id %}><h3>{{post.title}}</h3></a>
                 {% comment %} <h3>{{post.location}}</h3> {% endcomment %}
                 <h6>@{{post.user.username}} - {{post.description}}</h6>
                 <h6 class="post_card_date">{{post.date}}</h6>
@@ -44,7 +46,8 @@
         <div class="post_card2">
             <h4 class="user_title">Nomads</h4>
             {% for user in users %}
-                <h6 class="user_username">{{user.username}}</h6>
+                {% comment %} <h6 class="user_username">{{user.username}}</h6> {% endcomment %}
+                <h6><a class="user_username" href="{% url 'nomadapp:users_post' user.id %}">{{user.username}}</a></h6>
             {% endfor %}
         </div>
     </div>
