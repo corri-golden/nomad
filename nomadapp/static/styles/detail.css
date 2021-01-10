@@ -18,8 +18,31 @@ body {
     
 }
 
+.add_comment{
+    font-weight: 300
+
+}
+
+.create_date{
+    color: gray
+}
+
+.created_at{
+    color: gray;
+    font-size: 12px;
+}
+
+.post_username {
+    font-weight: 300;
+}
+
 .post_details{
     width: 700px
+}
+
+.deleteBTN{
+    margin-left: 10px;
+    background-color: red;
 }
 
 .post_comments {

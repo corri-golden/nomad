@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 #used so we can search by two parameters
 from django.db.models import Q
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 
@@ -13,7 +15,7 @@ def get_users():
 
 
 
-
+@login_required
 def post_list(request):
     if request.method == 'GET':
 

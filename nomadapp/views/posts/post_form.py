@@ -4,6 +4,14 @@ from django.shortcuts import render, redirect, reverse
 from django.shortcuts import render
 from nomadapp.forms import PostForm
 
+def get_post(post_id):
+
+    return Post.objects.get(pk=post_id)
+
+def get_posts():
+    # if request.method == 'GET':
+    all_posts = Post.objects.all()
+    return all_posts
 
 
 # def post_form(request):
@@ -11,6 +19,9 @@ from nomadapp.forms import PostForm
 #         template = 'posts/form.html'
         
 #         return render(request, template)
+
+
+
 
 def post_form(request):
     if request.method == 'GET':
@@ -39,4 +50,8 @@ def post_form(request):
         
     
         return redirect(reverse('nomadapp:home'))
+
+
+
+
 
