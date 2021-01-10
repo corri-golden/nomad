@@ -12,34 +12,30 @@
     <div class="post_details">
         <img class="post_photo" src="{{post.post_image.url}}"></img>
         <div class="post_info">
-            <h2>{{post.title}}</h2>
-            <h5>{{post.user.username}} - {{post.description}}</h5>
-            <h6>{{post.date}}</h6>
+            <h2>{{post.title}} </h2>
+            <h5 class="post_username">{{post.user.username}} - {{post.description}}</h5>
+            <h6 class="create_date">{{post.date}}</h6>
         </div>
         {% if post.user.id == user.id %}
-        <form method="POST">
+            <form method="POST">
                     {% csrf_token %}
                     <input type="hidden" name="actual_method" value="DELETE">
-                    <button>Delete</button> |
-                <form>
-        <form method="POST">
-                    {% csrf_token %}
-                    <input type="hidden" name="actual_method" value="DELETE">
-                    <button>Edit</button>
-                <form>
+                    <button class="deleteBTN">Delete</button> 
+            </form> 
         {% endif %}
     </div>
     <div class="post_comments">
                 {% for comment in post.comments.all %}
                     <h6>{{comment.user.username}} - {{comment.message}}</h6>
-                    <h6>{{comment.created_at}}</h6>
+                    <h6 class="created_at">{{comment.created_at}}</h6>
                 {% comment %} <form method="POST">
                     {% csrf_token %}
                     <input type="hidden" name="actual_method" value="DELETE">
                     <button>Delete</button>
                 <form> {% endcomment %}
                 {% endfor %}
-                <a href="{% url 'nomadapp:comment_new' post.id %}">Add a Comment</a>
+                <hr>
+                <a class="add_comment" href="{% url 'nomadapp:comment_new' post.id %}">Add a Comment...</a>
 
 
     </div>

@@ -8,3 +8,6 @@ class PostForm(ModelForm):
         model = Post
         fields = ('title', 'description', 'date','post_image')
         # exclude = ['user', 'liked']
+
+
+
