@@ -1,5 +1,6 @@
 from django.urls import include, path
 from .views import *
+from nomadapp.models import Post
 
 
 app_name = "nomadapp"

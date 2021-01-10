@@ -26,6 +26,23 @@ def post_detail(request, post_id):
     elif request.method == 'POST':
         form_data = request.POST
         print(form_data, "!!!!!!!!!!!!")
+
+    if (
+        "actual_method" in form_data 
+        and form_data["actual_method"] == "PUT"
+        ):
+        post_to_update = Post.objects.get(pk=post_id)
+        print(post_to_update, "Hereeee")
+
+        post_to_update.title = form_data['title']
+        post_to_update.description = form_data['description']
+        post_to_update.date = form_data['date']
+        post_to_update.post_image = form_data['post_image']
+
+        post_to_update.save()
+
+        return redirect(reverse('nomadapp:home'))
+
     if (
         "actual_method" in form_data
         and form_data["actual_method"] == "DELETE"
