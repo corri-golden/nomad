@@ -1,6 +1,55 @@
-<h2>Login</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Login</button>
-</form>
+
+{% comment %} {% load static %}
+{% load bootstrap3 %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'styles/login.css' %}" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %} {% endcomment %}
+
+{% load static %}
+{% load bootstrap3 %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Nomads</title>
+
+   <link rel="stylesheet" href="{% static 'styles/login.css' %}" />
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+   <script src="https://kit.fontawesome.com/495d6fbe5a.js" crossorigin="anonymous"></script>
+   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+
+
+<div class="form_container">
+    <div class="title">
+        <h2 class="nomads">Nomads</h2>
+        <h4>A community to share and inspire exploration.</h4>
+    </div>
+    
+    <div class="login_form">
+        <form class="form" method="post">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% comment %} {{ form.as_p }} {% endcomment %}
+            <button class="login" type="submit">Login  </button>
+            
+        </form>
+        <button class="register"><a href="{% url 'nomadapp:register' %}">Register</a></button>
+    </div>
+    
+</div>
+
+
+
+</body>
+
+</html>
+
+
+
