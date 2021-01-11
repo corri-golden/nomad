@@ -1,0 +1,41 @@
+body {
+    background-color: rgb(240, 239, 239)
+}
+
+form {
+    margin-top: 10px;
+}
+
+.reg {
+    border: 2px black solid;
+    margin: auto;
+    width: 400px;
+    background-color: white;
+    border-radius: 10px;
+    /* box-shadow: 3px 3px #bebebe; */
+    box-shadow: 5px 10px 8px #888888;
+    height: 425px
+}
+
+input {
+    width: 350px;
+    height: 40px;
+    margin-left: 25px;
+    margin-top: 15px
+}
+
+.submit {
+    width: 350px;
+    background-color: rgb(240, 208, 32);
+    height: 40px;
+    border-radius: 5px;
+    margin-top: 10px;
+    color: white !important;
+    margin-left: 25px;
+}
+
+.title {
+    text-align: center;
+    margin-top: 175px;
+    font-size: 48px;
+}
